@@ -1,0 +1,16 @@
+[project]
+name = "movie-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.1",
+    "flask-marshmallow>=1.3.0",
+    "flask-restful>=0.3.10",
+    "flask-sqlalchemy>=3.1.1",
+    "marshmallow-sqlalchemy>=1.4.2",
+    "psycopg2>=2.9.10",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy>=2.0.41",
+]
