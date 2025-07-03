@@ -162,6 +162,11 @@ body {
     transition: all 0.3s ease;
     padding: 0 1rem;
     backdrop-filter: blur(4px);
+    outline: none;
+}
+
+.search-button-container {
+    text-decoration: none;
 }
 
 .search-button:hover {
