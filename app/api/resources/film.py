@@ -2,6 +2,8 @@ from flask import request
 from flask_restful import Resource
 from sqlalchemy.exc import NoResultFound
 
+from app.config import get_config_value
+
 from app.api.filter import FilmFilter
 from app.models import db
 from app.schemas import film_schema
@@ -17,7 +19,7 @@ class FilmsList(Resource):
 		f_filter = FilmFilter(args)
 
 		page = safe_cast(args.get('page'), int, 1)
-		count = safe_cast(args.get('count'), int, 20)
+		count = safe_cast(args.get('count'), int, get_config_value("PAGINATION_DEFAULT", 20))
 
 		stmt = f_filter.query
 		pagination = db.paginate(stmt, page=page, per_page=count)

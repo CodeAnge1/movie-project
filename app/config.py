@@ -3,8 +3,14 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+from flask import current_app
+
 basedir = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(basedir, '.env'))
+
+
+def get_config_value(var_name, default=None):
+	return current_app.config.get(var_name, default)
 
 
 def choice_config_obj(app):
@@ -23,6 +29,10 @@ class BaseConfig:
 	SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 	TEMPLATE_FOLDER = os.path.join(basedir, "frontend", "templates")
 	STATIC_FOLDER = os.path.join(basedir, "frontend", "static")
+	PAGINATION_DEFAULT = 20
+	POSTER_IMAGE_BASE_URL = os.getenv("POSTER_IMAGE_BASE_URL", "https://avatars.mds.yandex.net/get-kinopoisk-image/")
+	PERSON_PHOTO_BASE_URL = os.getenv("PERSON_PHOTO_BASE_URL", "https://st.kp.yandex.net/images/actor_iphone/iphone")
+	YT_TRAILER_BASE_URL = os.getenv("YT_TRAILER_BASE_URL", "https://www.youtube.com/embed/")
 
 
 class ProductionConfig(BaseConfig):
