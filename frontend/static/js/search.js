@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.sort-select')
         .addEventListener('change', () => loadFilteredFilms());
+
+    document.querySelector('.reset-filters-btn')?.addEventListener('click', resetFilters);
 });
 
 const initFilters = () => {
@@ -303,3 +305,34 @@ const debounce = (fn, delay = 300) => {
         timeout = setTimeout(() => fn(...args), delay);
     };
 };
+
+function resetFilters() {
+    document.querySelectorAll('#genre-options input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    document.querySelectorAll('#country-options input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    document.getElementById('rating-min').value = MIN_RATING;
+    document.getElementById('rating-max').value = MAX_RATING;
+
+
+    document.getElementById('rating-min-input').value = MIN_RATING.toFixed(1);
+    document.getElementById('rating-max-input').value = MAX_RATING.toFixed(1);
+
+    document.getElementById('year-min').value = MIN_YEAR;
+    document.getElementById('year-max').value = MAX_YEAR;
+
+    document.getElementById('year-min-input').value = MIN_YEAR;
+    document.getElementById('year-max-input').value = MAX_YEAR;
+
+    const searchInput = document.querySelector('.search-wrapper input');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+
+    loadFilteredFilms(1);
+}
+
