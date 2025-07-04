@@ -1,6 +1,5 @@
 from flask import Blueprint
 
-bp = Blueprint('main', __name__, template_folder='../../frontend/templates')
-print(bp.template_folder)
+bp = Blueprint('main', __name__)
 
 from app.main import routes
