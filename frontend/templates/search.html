@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0"
+          name="viewport"/>
+    <title>Cinemania Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=
+                Inter:wght@400;600;900&display=swap"
+          rel="stylesheet"/>
+    <link href="../static/styles/search.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <aside>
+        <div class="aside-search-bar">
+            <div class="search-wrapper">
+                <svg class="search-icon" fill="none" viewBox="0 0 24 24">
+                    <path d="M21 21L15.8 15.8M18 10.5C18 14.0899 15.0899 17 11.5
+                             17C7.91015 17 5 14.0899 5 10.5C5 6.91015 7.91015 4 11.5
+                             4C15.0899 4 18 6.91015 18 10.5Z"
+                          stroke="#999" stroke-linecap="round"
+                          stroke-linejoin="round" stroke-width="2"/>
+                </svg>
+                <input aria-label="Поиск по названию" placeholder="Найти по названию" type="text"/>
+            </div>
+        </div>
+
+        <div class="filters">
+            <h3>Фильтры</h3>
+
+            <div class="filter-group">
+                <button class="filter-toggle" data-target="genre-options" type="button">
+                    <span>Жанры</span>
+                    <span class="arrow">&#9662;</span>
+                </button>
+                <div class="filter-options scrollable" id="genre-options"></div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-toggle" data-target="country-options" type="button">
+                    <span>Страны</span>
+                    <span class="arrow">&#9662;</span>
+                </button>
+                <div class="filter-options scrollable" id="country-options"></div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Год выхода</h4>
+                <div class="range-container">
+                    <input aria-label="Минимальный год"
+                           id="year-min-input" type="number">
+                    <input aria-label="Максимальный год"
+                           id="year-max-input" type="number">
+                </div>
+                <div class="slider-wrapper">
+                    <input id="year-min" type="range">
+                    <input id="year-max" type="range">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Рейтинг</h4>
+                <div class="range-container">
+                    <input aria-label="Минимальный рейтинг"
+                           id="rating-min-input"
+                           type="text">
+                    <input aria-label="Максимальный рейтинг"
+                           id="rating-max-input"
+                           type="text">
+                </div>
+                <div class="slider-wrapper">
+                    <input id="rating-min" step="0.1" type="range">
+                    <input id="rating-max" step="0.1" type="range">
+                </div>
+            </div>
+        </div>
+        <button class="reset-filters-btn" type="button">Сбросить фильтры</button>
+        <button class="apply-filters-btn" type="button">Применить</button>
+    </aside>
+
+    <main>
+        <div class="main-header">
+            <h4>Результатов:
+                <span id="movie-count-number">0</span>
+            </h4>
+            <select aria-label="Сортировка" class="sort-select">
+                <option value="rating">Сортировать по: Рейтингу</option>
+                <option value="year">Сортировать по: Году</option>
+            </select>
+        </div>
+
+        <div class="movie-grid"></div>
+
+        <template id="movie-card-template">
+            <a class="movie-link" href="">
+                <div class="movie-card">
+                    <img alt="Movie Poster" src=""/>
+                    <div class="movie-info">
+                        <h3></h3>
+                        <div class="year"></div>
+                        <div class="rating"></div>
+                        <p></p>
+                    </div>
+                </div>
+            </a>
+        </template>
+
+        <div class="pagination">
+            <button aria-label="Previous page" class="pagination-btn" type="button">
+                <svg fill="none" height="16" stroke="currentColor"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" width="16">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <button aria-current="page" class="pagination-btn active" type="button">1</button>
+
+            <span class="pagination-ellipsis">…</span>
+
+            <button aria-label="Next page" class="pagination-btn" type="button">
+                <svg fill="none" height="16" stroke="currentColor"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24" width="16">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </main>
+</div>
+<script src="../static/js/search.js"></script>
+</body>
+</html>

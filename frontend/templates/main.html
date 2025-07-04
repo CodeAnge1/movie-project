@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cinemania — откройте лучшие фильмы и сериалы для просмотра.">
+    <meta name="keywords" content="фильмы, кино, сериалы, Cinemania, смотреть">
+    <meta name="author" content="Cinemania Team">
+    <title>Cinemania</title>
+
+    <link rel="stylesheet" href="../static/styles/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Archivo:wght@100..900&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body>
+    <section class="hero">
+        <img
+            src="../static/img/hero.jpg"
+            alt="Фон с постерами фильмов"
+            class="hero-image"
+            loading="lazy"
+        >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>Cinemania</h1>
+                <h2>Откройте для себя следующую одержимость</h2>
+            </div>
+
+            <div class="hero-right">
+                <div class="poster-stack"></div>
+
+                <a class="search-button-container" href="/search">
+                    <button class="search-button" aria-label="Найти фильм">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="#ffffff"
+                            style="margin-right: 8px;"
+                        >
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5
+                                     6.5 6.5 0 109.5 16c1.61 0 3.09-.59
+                                     4.23-1.57l.27.28v.79l5 4.99L20.49
+                                     19l-4.99-5zm-6 0C8.01 14 6 11.99
+                                     6 9.5S8.01 5 10.5 5 15 7.01
+                                     15 9.5 12.99 14 10.5 14z"/>
+                        </svg>
+                        Поиск
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

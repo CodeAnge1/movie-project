@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title></title>
+    <link href="../static/styles/info.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <main>
+        <h1></h1>
+        <div class="movie-meta-data">
+            <span class="rating">★ <span id="rating-value"></span></span>
+            <span id="duration"></span>
+            <span id="year"></span>
+            <span id="country"></span>
+        </div>
+
+        <button class="show-trailer-btn">Смотреть трейлер</button>
+
+        <div class="info-item">
+            <div class="label">Жанры</div>
+            <div class="value" id="genres"></div>
+        </div>
+
+        <p id="movie-description"></p>
+
+        <section class="actors-section">
+            <h2>В ролях</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-button left" onclick="scrollCarousel(-1)">‹</button>
+
+                <template>
+                    <div class="actor-card">
+                        <img alt="" src="">
+                        <div class="actor-info">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="carousel" id="actor-carousel"></div>
+                <button class="carousel-button right" onclick="scrollCarousel(1)">›</button>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+        <img alt="Постер" src=""/>
+    </aside>
+</div>
+
+<script src="../static/js/info.js"></script>
+</body>
+</html>
