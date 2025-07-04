@@ -14,6 +14,7 @@ body {
 .container {
     display: flex;
     margin-top: 2rem;
+    flex-wrap: wrap;
     padding: 1rem 2rem;
 }
 
@@ -128,6 +129,22 @@ aside {
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
     cursor: pointer;
+    text-transform: capitalize;
+}
+
+.filter-options.scrollable.open {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.filter-options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filter-options::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
 }
 
 input[type="checkbox"] {
