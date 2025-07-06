@@ -4,7 +4,7 @@ from psycopg2 import sql
 from config import DB_CONFIG  # Ваши настройки БД
 
 # Настройки API Кинопоиска
-API_KEY = "XRDTMJF-TFS46CS-GA7KVX1-04ZX7HW"
+API_KEY = ""
 BASE_URL = "https://api.kinopoisk.dev/v1.3/movie"
 
 # Подключение к БД
