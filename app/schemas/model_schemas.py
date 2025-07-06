@@ -63,6 +63,13 @@ class FilmSchema(ma.SQLAlchemyAutoSchema):
 
 	genres = fields.List(fields.Nested(GenreSchema(only=("name",))))
 	countries = fields.List(fields.Nested(CountrySchema(only=("name",))))
-	film_people = fields.List(fields.Nested(FilmPersonSchema(exclude=("id", "position"))))
 	media = fields.List(fields.Nested(MediaSchema(exclude=("id",))))
+
+
+class FilmDetailedSchema(FilmSchema):
+	class Meta:
+		model = Film
+		include_fk = True
+
+	film_people = fields.List(fields.Nested(FilmPersonSchema(exclude=("id", "position"))))
 	trailers = fields.List(fields.Nested(TrailerSchema()))
