@@ -6,7 +6,7 @@ from app.config import get_config_value
 
 from app.api.filter import FilmFilter
 from app.models import db
-from app.schemas import film_schema
+from app.schemas import film_schema, detailed_film_schema
 
 from app.utils import safe_cast
 from app.api.utils import ApiResponse
@@ -41,7 +41,7 @@ class FilmDetail(Resource):
 			try:
 				query_stmt = FilmFilter({"film_id": film_id}).query
 				film = db.session.execute(query_stmt).one()[0]
-				response.data = film_schema.dump(film)
+				response.data = detailed_film_schema.dump(film)
 			except NoResultFound:
 				response.err_code = 404
 		else:
