@@ -1,6 +1,7 @@
 from marshmallow import fields
 
 from app.schemas import ma
+from app.utils import safe_cast
 from app.config import get_config_value
 from app.models import Film, Genre, Country, Person, FilmPerson, Media, Trailer
 
@@ -67,9 +68,17 @@ class FilmSchema(ma.SQLAlchemyAutoSchema):
 
 
 class FilmDetailedSchema(FilmSchema):
+	kp_url = fields.Method("get_kp_url")
+
 	class Meta:
 		model = Film
 		include_fk = True
+		exclude = ("kp_id",)
+
+	def get_kp_url(self, obj):
+		return f"{get_config_value("KP_BASE_URL", "")}{safe_cast(obj.kp_id, str, "")}/" \
+			if obj.kp_id \
+			else ""
 
 	film_people = fields.List(fields.Nested(FilmPersonSchema(exclude=("id", "position"))))
 	trailers = fields.List(fields.Nested(TrailerSchema()))

@@ -28,6 +28,7 @@ class Film(BaseModel, db.Model):
 	__tablename__ = "films"
 
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	kp_id = db.Column(db.Integer, nullable=False)
 	type = db.Column(db.String(255), nullable=False)
 	title = db.Column(db.String(255), nullable=False)
 	original_title = db.Column(db.String(255), nullable=False)
