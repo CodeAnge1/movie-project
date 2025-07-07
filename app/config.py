@@ -33,6 +33,7 @@ class BaseConfig:
 	POSTER_IMAGE_BASE_URL = os.getenv("POSTER_IMAGE_BASE_URL", "https://avatars.mds.yandex.net/get-kinopoisk-image/")
 	PERSON_PHOTO_BASE_URL = os.getenv("PERSON_PHOTO_BASE_URL", "https://st.kp.yandex.net/images/actor_iphone/iphone")
 	YT_TRAILER_BASE_URL = os.getenv("YT_TRAILER_BASE_URL", "https://www.youtube.com/embed/")
+	KP_BASE_URL = os.getenv("KP_BASE_URL", "https://www.kinopoisk.ru/film/")
 
 
 class ProductionConfig(BaseConfig):
